@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  php-apache-environment:
+    container_name: api-gempa-bmkg
+    image: php:8.0-apache
+    command: >
+      bash -c "a2enmod rewrite
+      && apache2-foreground"
+    volumes:
+      - ./bmkg:/var/www/html/
+    ports:
+      - 8003:80
